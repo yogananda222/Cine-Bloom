@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <title>CineBloom – Stars & Films</title>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-brand">
-          <a routerLink="#">Cine<span> Bloom</span></a>
-        </div>
-        <div class="navbar-menu" [class.is-active]="isActive">
-          <a routerLink="#">Home</a>
-          <a routerLink="/topRatedMovies">TopRated</a>
-          <a routerLink="/newArrivals">New Arrivals</a>
-          <a routerLink="/stars&films">Star & Films</a>
-        </div>
-        <button class="navbar-burger" [class.is-active]="isActive" (click)="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a routerLink="#">Cine<span> Bloom</span></a>
+    </div>
+    <div class="navbar-menu" [class.is-active]="isActive">
+      <a routerLink="#">Home</a>
+      <a routerLink="/topRatedMovies">TopRated</a>
+      <a routerLink="/newArrivals">New Arrivals</a>
+      <a routerLink="/stars&films">Star & Films</a>
+    </div>
+    <button class="navbar-burger" [class.is-active]="isActive" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
 
-      <div class="movie-container">
-        <div class="search-bar">
-          <input [(ngModel)]="actorName" type="text" placeholder="Enter actor name"  (keyup.enter)="searchActor()" />
-          <button (click)="searchActor()"><i class="fa fa-search" aria-hidden="true"></i></button>
+  <div class="movie-container">
+    <div class="search-bar">
+      <input
+        [(ngModel)]="actorName"
+        type="text"
+        placeholder="Enter actor name"
+        (keyup.enter)="searchActor()"
+      />
+      <button (click)="searchActor()"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="loading" class="loading">Loading...</div>
+
+    <!-- Error Message -->
+    <div *ngIf="!loading && errorMessage" class="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Actor Info -->
+    <div *ngIf="!loading && actorDetails.name" class="actorDetails">
+      <img
+        *ngIf="actorDetails.profile_path"
+        [src]="'https://image.tmdb.org/t/p/w200' + actorDetails.profile_path"
+        alt="{{ actorDetails.name }}"
+      />
+      <h2>{{ actorDetails.name }}</h2>
+    </div>
+
+    <!-- Actor Movies -->
+    <ul *ngIf="!loading && actorMovies.length > 0" class="movies-list">
+      <li *ngFor="let movie of actorMovies" (click)="showMovieDetails(movie)">
+        <div class="movie-item">
+          <div class="movie-info">
+            <h3>{{ movie.title }} ({{ movie.release_date | date: 'yyyy' }})</h3>
+          </div>
         </div>
+      </li>
+    </ul>
+  </div>
 
-        <div *ngIf="loading" class="loading">Loading...</div>
-        <div *ngIf="errorMessage" class="errorMessage">{{ errorMessage }}</div>
-
-        <div *ngIf="actorDetails" class="actorDetails">
-          
-          <img
-            *ngIf="actorDetails.profile_path"
-            [src]="'https://image.tmdb.org/t/p/w200' + actorDetails.profile_path"
-            alt="{{ actorDetails.name }}"
-          />
-          <h2>{{ actorDetails.name }}</h2>
-        </div>
-
-        <ul *ngIf="actorMovies.length > 0" class="movies-list">
-          <li *ngFor="let movie of actorMovies" (click)="showMovieDetails(movie)">
-            <div class="movie-item">
-              <div class="movie-info">
-                <h3>{{ movie.title }} ({{ movie.release_date | date: 'yyyy' }})</h3>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>  
-    <footer class="footer">
-        <p>&copy; 2025 CineBloom. All Rights Reserved.</p>
-    </footer>
+  <footer class="footer">
+    <p>&copy; 2025 CineBloom. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
-
-

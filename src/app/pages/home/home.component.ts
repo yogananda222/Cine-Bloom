@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   searchTerm: string = '';
   loading: boolean = true;
   genreMovies: any[] = [];
-  selectedGenre: number | null = null;
+  selectedGenre: number | null = 28;
   selectedGenreName: string = '';
   searchResults: any[] = [];
   viewState: 'movies' | 'search' | 'genre' = 'movies';
@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMovies(this.currentPage);
+    this.fetchMoviesByGenre();
   }
 
   toggleMenu() {
