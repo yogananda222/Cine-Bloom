@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../service/movie.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-toprated',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterModule],
   templateUrl: './toprated.component.html',
   styleUrl: './toprated.component.css'
 })

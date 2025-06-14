@@ -10,13 +10,13 @@
 <body>
     <nav class="navbar">
         <div class="navbar-brand">
-          <a href="#">Cine<span> Bloom</span></a>
+          <a routerLink="#">Cine<span> Bloom</span></a>
         </div>
         <div class="navbar-menu" [class.is-active]="isActive">
-          <a href="#">Home</a>
-          <a href="/topRatedMovies">TopRated</a>
-          <a href="/newArrivals">New Arrivals</a>
-          <a href="/stars&films">Star & Films</a>
+          <a routerLink="#">Home</a>
+          <a routerLink="/topRatedMovies">TopRated</a>
+          <a routerLink="/newArrivals">New Arrivals</a>
+          <a routerLink="/stars&films">Star & Films</a>
         </div>
         <button class="navbar-burger" [class.is-active]="isActive" (click)="toggleMenu()">
           <span></span>

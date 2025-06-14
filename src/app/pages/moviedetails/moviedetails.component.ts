@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../service/movie.service';
-import { ActivatedRoute , Router } from '@angular/router';
+import { ActivatedRoute , Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-moviedetails',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterModule],
   templateUrl: './moviedetails.component.html',
   styleUrl: './moviedetails.component.css'
 })
