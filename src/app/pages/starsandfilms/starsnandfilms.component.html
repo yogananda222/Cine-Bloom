@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+          <a href="#">Cine<span> Bloom</span></a>
+        </div>
+        <div class="navbar-menu" [class.is-active]="isActive">
+          <a href="#">Home</a>
+          <a href="/topRatedMovies">TopRated</a>
+          <a href="/newArrivals">New Arrivals</a>
+          <a href="/stars&films">Star & Films</a>
+        </div>
+        <button class="navbar-burger" [class.is-active]="isActive" (click)="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+
+      <div class="movie-container">
+        <div class="search-bar">
+          <input [(ngModel)]="actorName" type="text" placeholder="Enter actor name"  (keyup.enter)="searchActor()" />
+          <button (click)="searchActor()"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+
+        <div *ngIf="loading" class="loading">Loading...</div>
+        <div *ngIf="errorMessage" class="errorMessage">{{ errorMessage }}</div>
+
+        <div *ngIf="actorDetails" class="actorDetails">
+          
+          <img
+            *ngIf="actorDetails.profile_path"
+            [src]="'https://image.tmdb.org/t/p/w200' + actorDetails.profile_path"
+            alt="{{ actorDetails.name }}"
+          />
+          <h2>{{ actorDetails.name }}</h2>
+        </div>
+
+        <ul *ngIf="actorMovies.length > 0" class="movies-list">
+          <li *ngFor="let movie of actorMovies" (click)="showMovieDetails(movie)">
+            <div class="movie-item">
+              <div class="movie-info">
+                <h3>{{ movie.title }} ({{ movie.release_date | date: 'yyyy' }})</h3>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>  
+    <footer class="footer">
+        <p>&copy; 2025 CineBloom. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+
+

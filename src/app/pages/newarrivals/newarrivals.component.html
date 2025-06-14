@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Cine Bloom</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+          <a href="#">Cine<span> Bloom</span></a>
+        </div>
+        <div class="navbar-menu" [class.is-active]="isActive">
+          <a href="">Home</a>
+          <a href="/topRatedMovies">TopRated</a>
+          <a href="/stars&films">Star & Films</a>
+        </div>
+        <button class="navbar-burger" [class.is-active]="isActive" (click)="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+      
+      
+      <div class="movie-container">
+        <h1>New Arrival Movies</h1>
+        <div class="movies">
+          <div *ngFor="let movie of newArrivals" class="movie-card" (click)="showMovieDetails(movie)">
+            <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" />
+          </div>
+        </div>
+      
+        <div class="pagination-controls">
+            <div class="pagination-bubble" (click)="previousPage()" [ariaDisabled]="currentPage ===1">&laquo;</div>
+            <p><strong>{{currentPage}}</strong></p>
+            <div class="pagination-bubble" (click)="nextPage()" [ariaDisabled]="currentPage === totalPages">&raquo;</div>
+        </div>
+      </div>
+      
+    <footer class="footer">
+        <p>&copy; 2025 CineBloom. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

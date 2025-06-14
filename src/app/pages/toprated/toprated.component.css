@@ -1,0 +1,559 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: #141414;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand a {
+    color: rgb(252, 250, 250);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Cinzel Decorative', serif;
+    text-transform: uppercase;
+  }
+
+  .navbar-brand a span{
+    color: #e50914;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: bold;
+    
+  }
+  
+  .navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar-menu a {
+    color: rgb(243, 237, 237);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-menu a:hover {
+    transform: scale(1.05);
+    color: #e50914
+  }
+  
+  /* Burger menu styles */
+  .navbar-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    z-index: 2;
+  }
+  .navbar-burger span {
+    background-color: rgb(240, 237, 237);
+    height: 2px;
+    margin: 4px 0;
+    width: 25px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-burger.is-active span:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px; /* Adjust position for the "X" */
+  }
+
+  .navbar-burger.is-active span:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+  }
+
+  
+  .navbar-burger.is-active span:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px; /* Adjust position for the "X" */
+  }
+  
+  
+  .navbar-burger:hover span {
+    background-color: #555; /* Darker color on hover */
+  }
+  
+
+.search-bar, .genre-filter {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.genre-filter label {
+    margin-right: 10px;
+}
+
+.genre-filter label i {
+    color: #fdf2f2;
+    font-size: 1.2rem;
+    margin-right: 5px; /* Adds space between the icon and dropdown */
+  }
+  
+.genre-filter {
+    margin-left: 900px;
+    margin-top: -80px;
+}
+
+.genre-filter select {
+    padding: 8px;
+    border-radius: 5px;
+     border: 1px solid #444; 
+    background: transparent;
+    color: #fdf2f2;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #141414;
+} 
+
+
+.search-bar input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background-color: #222;
+    color: #fff;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e50914;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #f40612;
+}
+
+.search-bar i{
+  background: none;
+}
+
+.movie-container{
+
+  margin-top: 70px;
+}
+
+.movie-container h1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 40%;
+  color: #fdf2f2;
+  margin-top: 20px;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px;
+  width: 100%;
+}
+
+.movie-card {
+    position: relative;
+    width: 250px; 
+    background-color: #222;
+    border-radius: 8px;  
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.movie-card:hover {
+    transform: scale(1.05);  
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+.movie-card img {
+    width: 100%;
+    height:auto;  
+    object-fit: cover;
+}
+
+.movie-card p{
+  background: none;
+  margin-left: 80px;
+  width: auto;
+  height: auto;
+}
+
+
+/* Pagination Styles */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: 0 15px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.pagination-bubble:hover {
+    transform: translateY(-5px);
+}
+
+.pagination-bubble[ng-disabled="true"] {
+    background-color: #dcdcdc;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.pagination-bubble:active {
+    transform: translateY(1px);
+}
+
+p {
+    font-size: 1rem;
+    color: #fefbfb;
+  }
+
+
+/* Footer */
+.footer {
+    padding: 20px 30px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #999;
+    margin: 5px 0;
+}
+
+.footer a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Base Styles (for larger screens, from 1024px and up) */
+
+/* Media Query for Large Screens */
+@media (min-width: 1024px) {
+  .navbar-menu {
+      display: flex;
+      gap: 1.5rem;
+  }
+
+  .movies {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+      gap: 20px;
+  }
+
+  .movie-card {
+      width: auto; /* Regular movie card size */
+  }
+
+ /* Align Search Bar and Genre Filter Side by Side */
+ .search-bar,
+ .genre-filter {
+   display: flex;
+   flex-direction: row; /* Side by side */
+   align-items: center; /* Vertical alignment */
+   gap: 10px;
+ }
+
+ /* Wrapper for Search and Filter on the Same Line */
+ .search-bar {
+   margin-right: 90px; /* Push genre filter to the right */
+ }
+
+ .genre-filter {
+   margin-left: 70px; /* Push genre filter to the right */
+ }
+
+
+ /* Search Bar: Input and Button */
+ .search-bar {
+   width: 40%; /* Adjust width for search bar */
+   gap: 10px; /* Space between input and button */
+ }
+
+ .search-bar input[type="text"] {
+   width: 75%; /* Input width */
+ }
+
+ .search-bar button {
+   width: 30%; /* Button width */
+ }
+
+ /* Genre Filter: Label and Select */
+ .genre-filter {
+   width: 20%; /* Adjust width for genre filter */
+   justify-content: flex-start;
+ }
+
+ .genre-filter label {
+   white-space: nowrap; /* Prevent label wrapping */
+ }
+
+ .genre-filter select {
+   width: 70%; /* Dropdown width */
+ }  
+}
+
+/* Media Query for Tablets and Medium Screens (between 768px and 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .navbar-menu {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .movies {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px;
+  }
+
+  .movie-card {
+    width: 90%;
+  }
+
+  /* Align Search Bar and Genre Filter Side by Side */
+  .search-bar,
+  .genre-filter {
+    display: flex;
+    flex-direction: row; /* Side by side */
+    align-items: center; /* Vertical alignment */
+    gap: 10px;
+  }
+
+  /* Wrapper for Search and Filter on the Same Line */
+  .search-bar {
+    margin-right: 90px; /* Push genre filter to the right */
+  }
+
+  .genre-filter {
+    margin-left: 70px; /* Push genre filter to the right */
+  }
+
+
+  /* Search Bar: Input and Button */
+  .search-bar {
+    width: 40%; /* Adjust width for search bar */
+    gap: 10px; /* Space between input and button */
+  }
+
+  .search-bar input[type="text"] {
+    width: 75%; /* Input width */
+  }
+
+  .search-bar button {
+    width: 30%; /* Button width */
+  }
+
+  /* Genre Filter: Label and Select */
+  .genre-filter {
+    width: 20%; /* Adjust width for genre filter */
+    justify-content: flex-start;
+  }
+
+  .genre-filter label {
+    white-space: nowrap; /* Prevent label wrapping */
+  }
+
+  .genre-filter select {
+    width: 70%; /* Dropdown width */
+  }
+}
+
+
+/* Media Query for Small Screens (between 480px and 768px) */
+@media (max-width: 768px) {
+  .navbar-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 90%;
+      padding: 1rem 0;
+      z-index: 1;
+  }
+
+  .navbar-menu.is-active {
+      display: flex;
+  }
+
+  .navbar-burger {
+      display: flex;
+  }
+
+  .navbar-menu a {
+      padding: 1rem;
+  }
+
+  .movies {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px;
+  }
+
+  .movie-card {
+    width: 90%;
+  }
+
+   /* Align Search Bar and Genre Filter Side by Side */
+   .search-bar,
+   .genre-filter {
+     display: flex;
+     flex-direction: column; /* Side by side */
+     align-items: center; /* Vertical alignment */
+     gap: 20px;
+   }
+ 
+   .genre-filter {
+     margin-left: 70px; /* Push genre filter to the right */
+   }
+ 
+ 
+   /* Search Bar: Input and Button */
+   .search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 80%; /* Adjust width for search bar */
+    gap: 20px; /* Space between input and button */
+   }
+ 
+   .search-bar input[type="text"] {
+     width: 75%; /* Input width */
+   }
+ 
+   .search-bar button {
+     width: 30%; /* Button width */
+   }
+ 
+   /* Genre Filter: Label and Select */
+   .genre-filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    width: 40%; /* Adjust width for genre filter */
+    justify-content: flex-start;
+    margin-top: 10px;
+   }
+ 
+   .genre-filter label {
+     white-space: nowrap; /* Prevent label wrapping */
+   }
+ 
+   .genre-filter select {
+     width: 70%; /* Dropdown width */
+   }
+}
+
+/* Media Query for Extra Small Screens (under 480px) */
+@media (max-width: 480px) {
+  .navbar-menu {
+      width: 100%;
+      padding: 1rem 0;
+  }
+
+  .movies {
+      grid-template-columns: 1fr; /* 1 column */
+      gap: 5px;
+      padding: 0 5px; /* Add padding for very small screens */
+  }
+
+  .movie-card {
+      width: 90%; /* Narrow movie card width for small screens */
+      margin: 0 auto;
+  }
+
+
+   /* Align Search Bar and Genre Filter Side by Side */
+   .search-bar,
+   .genre-filter {
+     display: flex;
+     flex-direction: column; /* Side by side */
+     align-items: center; /* Vertical alignment */
+     gap: 10px;
+   }
+ 
+   .genre-filter {
+     margin-left: 70px; /* Push genre filter to the right */
+   }
+ 
+ 
+   /* Search Bar: Input and Button */
+   .search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 80%; /* Adjust width for search bar */
+    gap: 10px; /* Space between input and button */
+   }
+ 
+   .search-bar input[type="text"] {
+     width: 55%; /* Input width */
+   }
+ 
+   .search-bar button {
+     width: 30%; /* Button width */
+   }
+ 
+   /* Genre Filter: Label and Select */
+   .genre-filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    width: 40%; /* Adjust width for genre filter */
+    justify-content: flex-start;
+    margin-top: 10px;
+   }
+ 
+   .genre-filter label {
+     white-space: nowrap; /* Prevent label wrapping */
+   }
+ 
+   .genre-filter select {
+     width: 70%; /* Dropdown width */
+   }
+}
+
