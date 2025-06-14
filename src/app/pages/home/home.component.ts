@@ -2,12 +2,12 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { MovieService } from '../../service/movie.service';
 import { CommonModule } from '@angular/common';  
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,  // Mark as standalone component
-  imports: [CommonModule,FormsModule],  // Import CommonModule here
+  imports: [CommonModule,FormsModule, RouterModule],  // Import CommonModule here
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
